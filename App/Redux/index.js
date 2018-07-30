@@ -8,7 +8,10 @@ import ReduxPersist from '../Config/ReduxPersist'
 export const reducers = combineReducers({
   nav: require('./NavigationRedux').reducer,
   github: require('./GithubRedux').reducer,
-  search: require('./SearchRedux').reducer
+  search: require('./SearchRedux').reducer,
+  todos: require('./TodosRedux').reducer,
+  addTodos: require('./AddTodosRedux').reducer,
+  deleteTodos: require('./DeleteTodosRedux').reducer
 })
 
 export default () => {

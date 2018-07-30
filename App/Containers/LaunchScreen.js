@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { ScrollView, Text, Image, View } from 'react-native'
+import { ScrollView, Text, Image, View, StyleSheet, TextInput } from 'react-native'
 import { Images } from '../Themes'
+import TodosList from './TodosList'
+import TodoInput from './TodoInput'
 
 // Styles
 import styles from './Styles/LaunchScreenStyles'
@@ -8,20 +10,13 @@ import styles from './Styles/LaunchScreenStyles'
 export default class LaunchScreen extends Component {
   render () {
     return (
-      <View style={styles.mainContainer}>
-        <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
-        <ScrollView style={styles.container}>
-          <View style={styles.centered}>
-            <Image source={Images.launch} style={styles.logo} />
-          </View>
-
-          <View style={styles.section} >
-            <Image source={Images.ready} />
-            <Text style={styles.sectionText}>
-              This probably isn't what your app is going to look like. Unless your designer handed you this screen and, in that case, congrats! You're ready to ship. For everyone else, this is where you'll see a live preview of your fully functioning app using Ignite.
-            </Text>
-          </View>
-
+      <View style={StyleSheet.absoluteFill}>
+        <View style={styles.headerContainer}>
+          <Text style={styles.header}>EgTodo!</Text>
+        </View>
+        <TodoInput />
+        <ScrollView>
+          <TodosList />
         </ScrollView>
       </View>
     )
