@@ -2,7 +2,6 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import Rehydration from '../Services/Rehydration'
 import ReduxPersist from '../Config/ReduxPersist'
 import Config from '../Config/DebugConfig'
-import { middleware as asyncMiddleware } from 'redux-saga-async-action'
 import createSagaMiddleware from 'redux-saga'
 import ScreenTracking from './ScreenTrackingMiddleware'
 import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers'
@@ -23,9 +22,6 @@ export default (rootReducer, rootSaga) => {
 
   /* ------------- Analytics Middleware ------------- */
   middleware.push(ScreenTracking)
-
-  /* ------------- Async Action Middleware ------------- */
-  middleware.push(asyncMiddleware)
 
   /* ------------- Saga Middleware ------------- */
 

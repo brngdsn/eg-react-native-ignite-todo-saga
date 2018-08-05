@@ -11,7 +11,9 @@ export const reducers = combineReducers({
   search: require('./SearchRedux').reducer,
   todos: require('./TodosRedux').reducer,
   addTodos: require('./AddTodosRedux').reducer,
-  deleteTodos: require('./DeleteTodosRedux').reducer
+  deleteTodos: require('./DeleteTodosRedux').reducer,
+  completeTodos: require('./CompleteTodosRedux').reducer,
+  uncompleteTodos: require('./UncompleteTodosRedux').reducer
 })
 
 export default () => {

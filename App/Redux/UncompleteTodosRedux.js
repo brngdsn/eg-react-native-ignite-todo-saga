@@ -4,12 +4,12 @@ import Immutable from 'seamless-immutable'
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
-  deleteTodosRequest: ['data'],
-  deleteTodosSuccess: ['payload'],
-  deleteTodosFailure: null
+  uncompleteTodosRequest: ['data'],
+  uncompleteTodosSuccess: ['payload'],
+  uncompleteTodosFailure: null
 })
 
-export const DeleteTodosTypes = Types
+export const UncompleteTodosTypes = Types
 export default Creators
 
 /* ------------- Initial State ------------- */
@@ -23,7 +23,7 @@ export const INITIAL_STATE = Immutable({
 
 /* ------------- Selectors ------------- */
 
-export const DeleteTodosSelectors = {
+export const UncompleteTodosSelectors = {
   getData: state => state.data
 }
 
@@ -46,7 +46,7 @@ export const failure = state =>
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.DELETE_TODOS_REQUEST]: request,
-  [Types.DELETE_TODOS_SUCCESS]: success,
-  [Types.DELETE_TODOS_FAILURE]: failure
+  [Types.UNCOMPLETE_TODOS_REQUEST]: request,
+  [Types.UNCOMPLETE_TODOS_SUCCESS]: success,
+  [Types.UNCOMPLETE_TODOS_FAILURE]: failure
 })

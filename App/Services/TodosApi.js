@@ -37,6 +37,7 @@ const create = (baseURL = 'http://localhost:3000/') => {
   const getTodos = () => api.get('/todos')
   const postTodos = (todo) => api.post('/todos', todo)
   const deleteTodos = (todo) => api.delete(`/todos/${todo.id}`)
+  const patchTodos = (todo) => api.patch(`/todos/${todo.id}`, { done: todo.done })
 
   // ------
   // STEP 3
@@ -54,7 +55,8 @@ const create = (baseURL = 'http://localhost:3000/') => {
     // a list of the API functions from step 2
     getTodos,
     postTodos,
-    deleteTodos
+    deleteTodos,
+    patchTodos
   }
 }
 

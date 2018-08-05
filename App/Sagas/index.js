@@ -11,6 +11,8 @@ import { GithubTypes } from '../Redux/GithubRedux'
 import { TodosTypes } from '../Redux/TodosRedux'
 import { AddTodosTypes } from '../Redux/AddTodosRedux'
 import { DeleteTodosTypes } from '../Redux/DeleteTodosRedux'
+import { CompleteTodosTypes } from '../Redux/CompleteTodosRedux'
+import { UncompleteTodosTypes } from '../Redux/UncompleteTodosRedux'
 
 /* ------------- Sagas ------------- */
 
@@ -19,6 +21,8 @@ import { getUserAvatar } from './GithubSagas'
 import { getTodos } from './TodosSagas'
 import { addTodos } from './AddTodosSagas'
 import { deleteTodos } from './DeleteTodosSagas'
+import { completeTodos } from './CompleteTodosSagas'
+import { uncompleteTodos } from './UncompleteTodosSagas'
 
 /* ------------- API ------------- */
 
@@ -39,6 +43,8 @@ export default function * root () {
 
     takeLatest(TodosTypes.TODOS_REQUEST, getTodos, todosApi),
     takeLatest(AddTodosTypes.ADD_TODOS_REQUEST, addTodos, todosApi),
-    takeEvery(DeleteTodosTypes.DELETE_TODOS_REQUEST, deleteTodos, todosApi)
+    takeEvery(DeleteTodosTypes.DELETE_TODOS_REQUEST, deleteTodos, todosApi),
+    takeEvery(CompleteTodosTypes.COMPLETE_TODOS_REQUEST, completeTodos, todosApi),
+    takeEvery(UncompleteTodosTypes.UNCOMPLETE_TODOS_REQUEST, uncompleteTodos, todosApi)
   ])
 }
